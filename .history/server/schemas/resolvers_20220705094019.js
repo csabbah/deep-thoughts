@@ -35,7 +35,6 @@ const resolvers = {
 
       return user;
     },
-    login: async () => {},
   },
 };
 

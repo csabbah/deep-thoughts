@@ -30,12 +30,11 @@ const resolvers = {
     },
   },
   Mutation: {
-    addUser: async (parent, args) => {
-      const user = await User.create(args);
+addUser: async (parent, args) => {
+  const user = await User.create(args);
 
-      return user;
-    },
-    login: async () => {},
+  return user;
+}    login: async () => {},
   },
 };
 

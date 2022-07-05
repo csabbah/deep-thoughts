@@ -2,8 +2,16 @@
 const { gql } = require('apollo-server-express');
 
 // create our typeDefs
-// 'type Thought' is what we want to return per thought data
 const typeDefs = gql`
+  type User {
+    _id: ID
+    username: String
+    email: String
+    friendCount: Int
+    thoughts: [Thought]
+    friends: [User]
+  }
+
   type Thought {
     _id: ID
     thoughtText: String
@@ -20,19 +28,6 @@ const typeDefs = gql`
     username: String
   }
 
-  type User {
-    _id: ID
-    username: String
-    email: String
-    friendCount: Int
-    thoughts: [Thought]
-    friends: [User]
-  }
-
-  type Query {
-    thoughts(username: String): [Thought]
-  }
-
   type Query {
     users: [User]
     user(username: String!): User
@@ -41,10 +36,9 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    login(email: String!, password: String!): User
+    login(email: String!, password: String!): 
     addUser(username: String!, email: String!, password: String!): User
   }
 `;
-// Note the ID! - '!' - indicates that the username MUST exist
 
 module.exports = typeDefs;
