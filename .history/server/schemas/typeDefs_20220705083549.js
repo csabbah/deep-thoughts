@@ -20,15 +20,6 @@ const typeDefs = gql`
     username: String
   }
 
-  type User {
-    _id: ID
-    username: String
-    email: String
-    friendCount: Int
-    thoughts: [Thought]
-    friends: [User]
-  }
-
   type Query {
     thoughts(username: String): [Thought]
   }
@@ -40,6 +31,7 @@ const typeDefs = gql`
     thought(_id: ID!): Thought
   }
 `;
-// Note the ID! - '!' - indicates that the username MUST exist
+// Our thoughts query can now 'accept' a new username parameter (not required)
 
+// export the typeDefs
 module.exports = typeDefs;

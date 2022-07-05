@@ -13,13 +13,10 @@ const resolvers = {
     },
     // get all users
     users: async () => {
-      return (
-        User.find()
-          // .select() will not include the -__v value and the -password
-          .select('-__v -password')
-          .populate('friends')
-          .populate('thoughts')
-      );
+      return User.find()
+        .select('-__v -password')
+        .populate('friends')
+        .populate('thoughts');
     },
     // get a user by username
     user: async (parent, { username }) => {
