@@ -30,7 +30,6 @@ const typeDefs = gql`
   }
 
   type Query {
-    me: User
     thoughts(username: String): [Thought]
   }
 

@@ -4,6 +4,15 @@ const { gql } = require('apollo-server-express');
 // create our typeDefs
 // 'type Thought' is what we want to return per thought data
 const typeDefs = gql`
+  me: async (parent, args) => {
+    const userData = await User.findOne({})
+      .select('-__v -password')
+      .populate('thoughts')
+      .populate('friends');
+
+    return userData;
+  },
+  
   type Thought {
     _id: ID
     thoughtText: String
