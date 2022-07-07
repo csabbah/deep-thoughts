@@ -13,16 +13,7 @@ const Home = () => {
   return (
     <main>
       <div className="flex-row justify-space-between">
-        <div className="col-12 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
-            />
-          )}
-        </div>
+        <div className="col-12 mb-3">{/* PRINT THOUGHT LIST */}</div>
       </div>
     </main>
   );
