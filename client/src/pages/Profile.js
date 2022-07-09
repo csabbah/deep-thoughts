@@ -12,6 +12,8 @@ import { Navigate, useParams } from 'react-router-dom';
 import { ADD_FRIEND } from '../utils/mutations';
 import { useQuery, useMutation } from '@apollo/client';
 
+import ThoughtForm from '../components/ThoughtForm';
+
 const Profile = () => {
   // destructuure the mutation function from ADD_FRIEND
   const [addFriend] = useMutation(ADD_FRIEND);
@@ -61,7 +63,6 @@ const Profile = () => {
       <h2 className="bg-dark text-secondary p-3 display-inline-block">
         Viewing {userParam ? `${user.username}'s` : 'your'} profile.
       </h2>
-
       {userParam && (
         <button className="btn ml-auto" onClick={handleClick}>
           Add Friend
@@ -81,6 +82,7 @@ const Profile = () => {
           friends={user.friends}
         />
       </div>
+      <div className="mb-3">{!userParam && <ThoughtForm />}</div>
     </div>
   );
 };
