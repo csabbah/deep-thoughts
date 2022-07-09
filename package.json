@@ -23,5 +23,8 @@
   "homepage": "https://github.com/csabbah/deep-thoughts#readme",
   "devDependencies": {
     "concurrently": "^7.2.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3"
   }
 }
